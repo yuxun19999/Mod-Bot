@@ -1,0 +1,15 @@
+{
+  "name": "xWass's Bot",
+  "version": "1.0.0",
+  "description": "My first Discord Bot",
+  "main": "index.js",
+  "dependencies": {
+    "npm": "^6.14.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xWass",
+  "license": "ISC"
+}
