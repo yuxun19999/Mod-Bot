@@ -1,3 +1,5 @@
+// FOR THIS TO WORK, PUT YOUR BOT'S TOKEN IN THE EMPTY SPACE IN THE QUOTES NEXT TO TOKEN
+
 {
   "token": " ",
   "prefix": "!"
