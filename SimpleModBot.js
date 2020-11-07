@@ -15,23 +15,24 @@ client.on("message", async (message) => {
         return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
+    const amount = args.join(" ");
     
     if (command === `welcome`) {
       message.channel.send("Welcome to the server! :wave:");
       message.delete();
       return;
     }
+    if (command === `pog`) {
+        message.channel.send("<:Pog:769654225599725588> <:Pog:769654225599725588> <:Pog:769654225599725588>");
+        message.delete();
+        return;
+    }
     if (command === `commands`) {
-        message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user. \nUse !ping to check your ping");
+        message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user.");
         message.delete();
           return;
     }
-    if (command ===`ping`) {
-      message.channel.send('Pinging...').then(sent => {
-      sent.edit(`Pong! Took ${sent.createdTimestamp - message.createdTimestamp}ms`);
-      return;
-      });
-    }
+
     if (command ===`mute`) {
       const member = message.mentions.members.first();
       message.guild.roles.cache.find(r => r.name === "Muted");
@@ -65,6 +66,24 @@ client.on("message", async (message) => {
       member.roles.remove(role);
       message.channel.send(`${member.displayName} has been unmuted.`);
       return;
+    }
+    if (command ===`ping`) {
+      message.channel.send("Pinging...").then(sent => {
+      sent.edit(`Pong! Took ${sent.createdTimestamp - message.createdTimestamp}ms`);
+      return;
+      });
+    }
+    if (command === `clear`) {
+      if(!amount) return message.channel.send("You need to provide a number of messages to delete.")
+
+      if(amount > 500) return message.channel.send(`You cannot clear more than 500 messages at once`)
+
+      if(amount < 1) return message.channel.send(`You need to delete atleast one messages`)
+    
+      await message.channel.messages.fetch({limit: amount}).then(messages => {
+          message.channel.bulkDelete(messages)
+          return message.channel.send(`${amount} messages cleared!`);
+      });
     }
     if (command === `kick`) {
       message.delete();
