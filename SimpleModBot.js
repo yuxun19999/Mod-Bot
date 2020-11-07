@@ -21,20 +21,17 @@ client.on("message", async (message) => {
       message.delete();
       return;
     }
-    if (command === `pog`) {
-        message.channel.send("<:Pog:769654225599725588> <:Pog:769654225599725588> <:Pog:769654225599725588>");
-        message.delete();
-        return;
-    }
     if (command === `commands`) {
-        message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user.");
+        message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user. \nUse !ping to check your ping");
         message.delete();
           return;
     }
-    if (command === `fakeban`) {
-      message.channel.send(`${member.displayname} has been banned.`)
+    if (command ===`ping`) {
+      message.channel.send('Pinging...').then(sent => {
+      sent.edit(`Pong! Took ${sent.createdTimestamp - message.createdTimestamp}ms`);
+      return;
+      });
     }
-  
     if (command ===`mute`) {
       const member = message.mentions.members.first();
       message.guild.roles.cache.find(r => r.name === "Muted");
@@ -66,7 +63,7 @@ client.on("message", async (message) => {
       }
       const role = message.guild.roles.cache.find(r => r.name === "Muted");
       member.roles.remove(role);
-      message.channel.send(`${member.displayName} has been muted.`);
+      message.channel.send(`${member.displayName} has been unmuted.`);
       return;
     }
     if (command === `kick`) {
