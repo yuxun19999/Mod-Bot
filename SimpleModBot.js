@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client({ disableEveryone: true });
-const member = message.mentions.members.first();
-const role = message.guild.roles.cache.find(r => r.name === "Muted");
 
 client.on("ready", async function () {
     console.log(client.user.username + " is ready!");
@@ -23,13 +21,22 @@ client.on("message", async (message) => {
       message.delete();
       return;
     }
+    if (command === `pog`) {
+        message.channel.send("<:Pog:769654225599725588> <:Pog:769654225599725588> <:Pog:769654225599725588>");
+        message.delete();
+        return;
+    }
     if (command === `commands`) {
         message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user.");
         message.delete();
           return;
     }
+    if (command === `fakeban`) {
+      message.channel.send(`${member.displayname} has been banned.`)
+    }
   
     if (command ===`mute`) {
+      const member = message.mentions.members.first();
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
       if(!message.member.hasPermission("MANAGE_ROLES")){
@@ -40,13 +47,13 @@ client.on("message", async (message) => {
         message.channel.send('I do not have permission to use this command');
         return;
       }
-      if(!user){
-        message.channel.send("You didn't mention anyone!");
-        return;
-      }
+      const role = message.guild.roles.cache.find(r => r.name === "Muted");
       member.roles.add(role);
+      message.channel.send(`${member.displayName} has been muted.`);
+      return;
     }
     if (command ===`unmute`) {
+      const member = message.mentions.members.first();
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
       if(!message.member.hasPermission("MANAGE_ROLES")){
@@ -57,11 +64,10 @@ client.on("message", async (message) => {
         message.channel.send('I do not have permission to use this command');
         return;
       }
-      if(!user){
-        message.channel.send("You didn't mention anyone!");
-        return;
-      }
+      const role = message.guild.roles.cache.find(r => r.name === "Muted");
       member.roles.remove(role);
+      message.channel.send(`${member.displayName} has been muted.`);
+      return;
     }
     if (command === `kick`) {
       message.delete();
@@ -80,9 +86,7 @@ client.on("message", async (message) => {
             .then((member) => {
                 // Successmessage
                 message.channel.send(
-                    ":wave: " +
-                        member.displayName +
-                        " has been successfully kicked :point_right: "
+                    `:wave: ${member.displayName} has been successfully kicked :point_right: `
                 );
             })
             .catch(() => {
