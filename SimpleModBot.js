@@ -16,25 +16,19 @@ client.on("message", async (message) => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
     const amount = args.join(" ");
+    const member = message.mentions.members.first();
     
     if (command === `welcome`) {
       message.channel.send("Welcome to the server! :wave:");
       message.delete();
       return;
     }
-    if (command === `pog`) {
-        message.channel.send("<:Pog:769654225599725588> <:Pog:769654225599725588> <:Pog:769654225599725588>");
-        message.delete();
-        return;
-    }
     if (command === `commands`) {
         message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user.");
         message.delete();
           return;
     }
-
     if (command ===`mute`) {
-      const member = message.mentions.members.first();
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
       if(!message.member.hasPermission("MANAGE_ROLES")){
@@ -51,7 +45,6 @@ client.on("message", async (message) => {
       return;
     }
     if (command ===`unmute`) {
-      const member = message.mentions.members.first();
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
       if(!message.member.hasPermission("MANAGE_ROLES")){
@@ -85,6 +78,16 @@ client.on("message", async (message) => {
           return message.channel.send(`${amount} messages cleared!`);
       });
     }
+    if (command === `warn`) {
+    const user = args[0];
+    const userLength = user.length;
+    const reason = args.join(" ").slice(userLength);
+    if(!args[0]) return message.reply('Please a User to warn.');
+    if(!args[1]) return message.reply('Please Enter some text to warn them with.');
+    message.member.send(`You have been warned for${reason}`);
+    message.channel.send(`${member.displayName} has been warned for${reason}`);
+    return;
+    }
     if (command === `kick`) {
       message.delete();
       if(!message.member.hasPermission("KICK_MEMBERS")) {
@@ -95,7 +98,6 @@ client.on("message", async (message) => {
         return message.channel.send(`**${message.author.username}**, I can not unban this user because I do not have the permission to do so.`)
       }
         // Easy way to get member object though mentions.
-        const member = message.mentions.members.first();
         // Kick
         member
             .kick()
