@@ -23,11 +23,24 @@ client.on("message", async (message) => {
       message.delete();
       return;
     }
+    if (command === `pog`) {
+        message.channel.send("<:Pog:769654225599725588> <:Pog:769654225599725588> <:Pog:769654225599725588>");
+        message.delete();
+        return;
+    }
     if (command === `commands`) {
         message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user.");
         message.delete();
           return;
     }
+    if (command === `shutdown`) {
+      if(!message.member.hasPermission("ADMINISTRATOR")) {
+        message.channel.send("You can not use this command")
+      }
+      message.channel.send("Shutting down...")
+      process.exit()
+    }
+
     if (command ===`mute`) {
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
@@ -82,9 +95,9 @@ client.on("message", async (message) => {
     const user = args[0];
     const userLength = user.length;
     const reason = args.join(" ").slice(userLength);
-    if(!args[0]) return message.reply('Please a User to warn.');
-    if(!args[1]) return message.reply('Please Enter some text to warn them with.');
-    message.member.send(`You have been warned for${reason}`);
+    if(!args[0]) return message.reply('Please provide a user to warn.');
+    if(!args[1]) return message.reply('Please provide the reason you are warning them..');
+    member.send(`You have been warned for${reason}`);
     message.channel.send(`${member.displayName} has been warned for${reason}`);
     return;
     }
