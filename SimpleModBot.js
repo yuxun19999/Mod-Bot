@@ -33,14 +33,6 @@ client.on("message", async (message) => {
         message.delete();
           return;
     }
-    if (command === `shutdown`) {
-      if(!message.member.hasPermission("ADMINISTRATOR")) {
-        message.channel.send("You can not use this command")
-      }
-      message.channel.send("Shutting down...")
-      process.exit()
-    }
-
     if (command ===`mute`) {
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
