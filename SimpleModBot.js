@@ -4,7 +4,7 @@ const client = new Discord.Client({ disableEveryone: true });
 
 client.on("ready", async function () {
     console.log(client.user.username + " is ready!");
-    client.user.setActivity("to my own sorrow.", { type: "LISTENING" });
+    client.user.setActivity("to !commands.", { type: "LISTENING" });
 });
 client.on("message", async (message) => {
     if (
@@ -23,15 +23,19 @@ client.on("message", async (message) => {
       message.delete();
       return;
     }
-    if (command === `pog`) {
-        message.channel.send("<:Pog:769654225599725588> <:Pog:769654225599725588> <:Pog:769654225599725588>");
-        message.delete();
-        return;
-    }
     if (command === `commands`) {
-        message.channel.send("Use !kick to kick a user. \nUse !ban to ban a user, and !unban to unban a user. \nUse !mute to mute a user, and !unmute to unmute a user.");
+        message.channel.send("Use `!kick <@user>` to kick a user. \nUse `!ban <@user>` to ban a user, and `!unban <@user>` to unban a user. \nUse `!mute <@user>` to mute a user, and `!unmute <@user>` to unmute a user. \nUse `!mute <@user>` to warn a user. (unlogged) \nUse `!clear <messageAmount>` to purge messages.");
         message.delete();
           return;
+    }
+    if (command === `shutdown`) {
+      if (message.author.id === " ") { //add your discord ID into the quotes so you can actually use this command.
+        await message.channel.send("Shutting down...")
+        process.exit()
+        return;
+      }
+      else message.channel.send("You must be the bot's owner to run this command!")
+      return;
     }
     if (command ===`mute`) {
       message.guild.roles.cache.find(r => r.name === "Muted");
@@ -109,7 +113,7 @@ client.on("message", async (message) => {
             .then((member) => {
                 // Successmessage
                 message.channel.send(
-                    `:wave: ${member.displayName} has been successfully kicked :point_right: `
+                    `:wave: ${member.displayName} has been successfully kicked! <:pogU:769654062190559232>`
                 );
             })
             .catch(() => {
@@ -151,11 +155,11 @@ client.on("message", async (message) => {
           return message.channel.send(`**${message.author.username}**, I can not unban this user because I do not have the permission to do so.`)
         }
 
-        let userID = args[0]
+        const userID = args[0]
           message.guild.fetchBans().then((bans) => {
               if (bans.size == null)
                 return;
-              let bUser = bans.find(b => b.user.id == userID);
+              const bUser = bans.find(b => b.user.id == userID);
               if (!bUser)
                 return;
               message.guild.members.unban(bUser.user);
