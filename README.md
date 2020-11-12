@@ -20,7 +20,7 @@ I have coded a simple moderation bot, including a variety of commands as shown b
 
 !commands - Displays commands - Usage: `!commands`
 
-!shutdown - Turns off your bot. - Usage: `!shutdown` // CHECK LINE 32! PUT YOUR OWN DISCORD ID IN THE EMPTY QUTOES
+!shutdown - Turns off your bot. - Usage: `!shutdown` // CHECK LINE 32! PUT YOUR OWN DISCORD ID IN THE EMPTY QUOTES
 
 !ping - Tells you your ping - Usage: `!ping`
 
