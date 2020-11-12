@@ -1,10 +1,10 @@
 # Simple-Moderator-Bot
 Simple Discord Moderator Bot
 
-I have coded a simple moderation bot, including a kick, ban, and unban command. 
-I may update it in the future to contain a mute and unmute command
+I have coded a simple moderation bot, including a variety of commands as shown below. I plan to add timed mutes in the future, but that will have to wait.
 
-List of commands:
+
+`List of commands:`
 
 !kick - Kicks the mentioned user. - Usage: `!kick <@user>`
 
