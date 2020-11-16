@@ -37,6 +37,22 @@ client.on("message", async (message) => {
       else message.channel.send("You must be the bot's owner to run this command!")
       return;
     }
+    const channels = message.channel // THIS IS THE LOCK COMMAND - WARNING - THIS COMMAND MAY MESS UP YOUR SERVER'S CHANNEL PERMS. IT CHANGES THE ABILITY TO SPEAK FOR THE @everyone ROLE IN **EVERY SINGLE CHANNEL** THAT THE BOT CAN ACCESS
+    if (args[0] === 'on') {
+        channels.forEach(channel => {
+            channel.updateOverwrite(message.guild.roles.everyone, {
+                SEND_MESSAGES: false
+            })
+        })
+        return message.channel.send('Locked all channels');
+    } else if (args[0] === 'off') {
+        channels.forEach(channel => {
+            channel.updateOverwrite(message.guild.roles.everyone, {
+                SEND_MESSAGES: true
+            })
+        })
+        return message.channel.send('Unlocked all channels')
+    }
     if (command ===`mute`) {
       message.guild.roles.cache.find(r => r.name === "Muted");
       message.delete();
