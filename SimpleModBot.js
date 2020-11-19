@@ -95,7 +95,7 @@ client.on("message", async (message) => {
     if (command === `clear`) {
       if(!amount) return message.channel.send("You need to provide a number of messages to delete.")
 
-      if(amount > 500) return message.channel.send(`You cannot clear more than 500 messages at once`)
+      if(amount > 1000) return message.channel.send(`You cannot clear more than 1000 messages at once`)
 
       if(amount < 1) return message.channel.send(`You need to delete atleast one messages`)
     
