@@ -1,8 +1,8 @@
 {
-  "name": "xWass's Bot",
+  "name": " ", // Your Bot Name
   "version": "1.0.0",
-  "description": "My first Discord Bot",
-  "main": "index.js",
+  "description": " ", // Your bot's description
+  "main": " ", // Your main pull file (index.js)
   "dependencies": {
     "npm": "^6.14.8"
   },
@@ -10,6 +10,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "xWass",
+  "author": " ", //Your Name
   "license": "ISC"
 }
