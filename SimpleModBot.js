@@ -21,114 +21,106 @@ client.on("message", async (message) => {
   const modCheckEmbed = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setTitle("You must be moderator to use this command!")
-    .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");    
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");    
     
     const botCheckEmbed = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setTitle("I do not have the correct permissions to do this!")
-    .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");    
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");    
   
     const welcomeEmbed = new Discord.MessageEmbed()
     .setColor("#0fff4b")
     .setTitle("Welcome to the server!")
-    .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-    .setDescription("Welcome to the server! Navigate about the server to find anything you may need relating to Ancient Resurge.")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription("Welcome to the server! Navigate about the server to find anything you may need relating to Ancient Resurge.")
     .addFields(
       { name: "Official Server:", value: "https://discord.gg/r7NSkFQ" },
     )
     .setImage("https://images-ext-2.discordapp.net/external/Chkd3qt-yN-qEspd_KUhwAT14GJn2-mk8Emg5eSILMA/%3Fsize%3D1024/https/cdn.discordapp.com/icons/746364860392013854/afce46e5c8ae4080d4f829992db2375d.webp")
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");    
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");    
   
     const muteEmbed = new Discord.MessageEmbed()
     .setColor("#ffd400")
     .setTitle("User Muted")
-    .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-    .setDescription(`${member} has been muted.`)
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription(`${member} has been muted.`)
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const unmuteEmbed = new Discord.MessageEmbed()
 	  .setColor("#0fff4b")
     .setTitle("User Unuted")
-    .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-    .setDescription(`${member} has been unmuted.`)
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription(`${member} has been unmuted.`)
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const commandsEmbed = new Discord.MessageEmbed()
 	  .setColor("#000001")
 	  .setTitle("How to use this bot:")
-    .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
 	  .addFields(
 		  { name: "Moderation Commands", value: "Use !ban <@user> to ban a user. \nUse !unban <userid> to unban a user. \nUse !mute <@user> to mute a user. \nUse !unmute <@user> to unmute a user. \nUse !kick <@user> to kick a user." },
 	  	{ name: "\u200B", value: "\u200B" },
   		{ name: "Misc Commands", value: "Use !commands to see this response. \nUse !ping to check your ping. \nUse !welcome to welcome a new user.", inline: true },
 	  )
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://i.imgur.com/wSTFkRM.png");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const shutdownEmbed = new Discord.MessageEmbed()
 	  .setColor("#000001")
 	  .setTitle("Shutdown")
-    .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
 	  .setDescription("Bot Shutting Down...")
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
 
     const kickEmbed = new Discord.MessageEmbed()
 	  .setColor("#ff0000")
 	  .setTitle("User Kicked")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
 	  .setDescription(`${member} has been kicked from the server.`)
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const banEmbed = new Discord.MessageEmbed()
 	  .setColor("#ff0000")
 	  .setTitle("User Banned")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
     .setDescription(`${member} has been banned from the server.`)
     .setImage("https://gfycat.com/playfulfittingcaribou.gif")
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const unbanEmbed = new Discord.MessageEmbed()
 	  .setColor("#0fff4b")
 	  .setTitle("User Unbanned")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
-    .setDescription(`${member} has been banned from the server.`)
-    .setImage("https://gfycat.com/playfulfittingcaribou.gif")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setDescription("User has been unbanned from the server.")
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const lockEmbed = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setTitle("Channel Locked")
-    .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-    .setDescription("This channel has been locked.")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription("This channel has been locked.")
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const unlockEmbed = new Discord.MessageEmbed()
     .setColor("#0fff4b")
     .setTitle("Channel Unlocked")
-    .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-    .setDescription("This channel has been unlocked.")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription("This channel has been unlocked.")
     .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const lockSpecifyEmbed = new Discord.MessageEmbed()
     .setColor("#000001")
     .setTitle("Please Specify On or Off")
-    .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-    .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setTimestamp()
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
 
 
 // COMMAND CODE
@@ -138,9 +130,8 @@ client.on("message", async (message) => {
         const pingEmbed = new Discord.MessageEmbed()
         .setColor("#000001")
         .setTitle(`Pong! Took ${sent.createdTimestamp - message.createdTimestamp}ms`)
-        .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-        .setTimestamp()
-        .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");    
+        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")        .setTimestamp()
+        .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");    
       sent.edit(pingEmbed);
       return;
       });
@@ -205,15 +196,6 @@ client.on("message", async (message) => {
       console.log(`${member} has been muted by ${message.author}.`)
       return;
     }
-    // SUPERMUTE COMMAND (NO PERMS)
-    if (command ===`supermute`) {
-      message.guild.roles.cache.find(r => r.name === "Muted");
-      const role = message.guild.roles.cache.find(r => r.name === "Muted");
-      member.roles.add(role);
-      message.channel.send(muteEmbed);
-      console.log(`${member} has been super muted by ${message.author}.`)
-      return;
-    }
     // UNMUTE COMMAND
     if (command ===`unmute`) {
       message.guild.roles.cache.find(r => r.name === "Muted");
@@ -231,42 +213,30 @@ client.on("message", async (message) => {
       console.log(`${member} has been unmuted by ${message.author}.`)
       return;
     }
-        // SUPER UNMUTE COMMAND (NO PERMS)
-        if (command ===`superunmute`) {
-          message.guild.roles.cache.find(r => r.name === "Muted");
-          const role = message.guild.roles.cache.find(r => r.name === "Muted");
-          member.roles.remove(role);
-          message.channel.send(unmuteEmbed);
-          console.log(`${member} has been super unmuted by ${message.author}.`)
-          return;
-        }
+  
     // CLEAR COMMAND
     if (command === `clear`) {
       const clearEmbed = new Discord.MessageEmbed()
       .setColor("#0fff4b")
       .setTitle("Messages Cleared")
-      .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-      .setDescription(`${amount} messages cleared.`)
+      .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")      .setDescription(`${amount} messages cleared.`)
       .setTimestamp()
-      .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");  
+      .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");  
       const clearMAXEmbed = new Discord.MessageEmbed()
       .setColor("#0fff4b")
       .setTitle("Cannot clear more than 100 messages.")
-      .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-      .setTimestamp()
-      .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+      .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")      .setTimestamp()
+      .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
       const clearProvideEmbed = new Discord.MessageEmbed()
       .setColor("#0fff4b")
       .setTitle("Please provide a number of messages to delete.")
-      .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-      .setTimestamp()
-      .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+      .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")      .setTimestamp()
+      .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
       const clearMINEmbed = new Discord.MessageEmbed()
       .setColor("#0fff4b")
-      .setTitle("You have to delete atleast one message.")
-      .setAuthor("xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg", "https://xwass.github.io/AncientResurge")
-      .setTimestamp()
-      .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+      .setTitle("You have to delete at least one message.")
+      .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")      .setTimestamp()
+      .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
       if(!message.member.hasPermission("MANAGE_MESSAGES")){
         message.channel.send(modCheckEmbed);
         return;
@@ -281,18 +251,6 @@ client.on("message", async (message) => {
           return;
       });
     }
-        // SUPER CLEAR COMMAND (NO PERMS)
-        if (command === `superclear`) {
-          if(!amount) return message.channel.send(clearProvideEmbed)
-          if(amount > 1000) return message.channel.send(clearMAXEmbed)
-          if(amount < 1) return message.channel.send(clearMINEmbed)
-          await message.channel.messages.fetch({limit: amount}).then(messages => {
-              message.channel.bulkDelete(messages)
-              message.channel.send(clearEmbed);
-              console.log(`${amount} messages super cleared by ${message.author} in ${message.channel}.`)
-              return;
-          });
-        }
     // WARN COMMAND
     if (command === `warn`) {
       const user = args[0];
@@ -301,29 +259,29 @@ client.on("message", async (message) => {
     const warnEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
 	  .setTitle("User Warned")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+	  .setAuthor(`${message.author.tag}`, "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png")
 	  .setDescription(`${member} warned for ${reason}`)
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
     const warnDMEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
-	  .setTitle("You were warned")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+	  .setTitle(`You were warned by ${message.author.tag}`)
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
 	  .setDescription(`You have been warned for ${reason}`)
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
     const warnProvideEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
 	  .setTitle("Please provide a user to warn")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
     const warnReasonEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
 	  .setTitle("Please provide the reason you are warning the user.")
-	  .setAuthor(`${message.author.tag}`, "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
 	  .setTimestamp()
-    .setFooter("Created by xWass", "https://cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.jpg");
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
         if(!message.member.hasPermission("KICK_MEMBERS")) {
           return message.channel.send(modCheckEmbed)
         }
@@ -334,18 +292,6 @@ client.on("message", async (message) => {
         console.log(`${member} has been warned by ${message.author} for ${reason}`)
           return;
     }
-        // SUPER WARN COMMAND (NO PERMS)
-        if (command === `superwarn`) { 
-      const user = args[0];
-      const userLength = user.length;
-      const reason = args.join(" ").slice(userLength);
-        if(!args[0]) return message.reply(warnProvideEmbed);
-          if(!args[1]) return message.reply(warnReasonEmbed);
-      member.send(warnDMEmbed);
-        message.channel.send(warnEmbed);
-          console.log(`${member} has been super warned by ${message.author} for ${reason}`)
-            return;
-      }
     // KICK COMMAND
       //PERMCHECK
     if (command === `kick`) {
