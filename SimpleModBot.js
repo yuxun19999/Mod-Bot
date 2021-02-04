@@ -37,7 +37,7 @@ client.on("message", async (message) => {
     .setTitle("Welcome to the server!")
     .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription("Welcome to the server! Navigate about the server to find anything you may need relating to Ancient Resurge.")
     .addFields(
-      { name: "Official Server:", value: "https://discord.gg/r7NSkFQ" },
+      { name: "Official Server:", value: "https://discord.gg/r7NSkFQ" }
     )
     .setImage("https://images-ext-2.discordapp.net/external/Chkd3qt-yN-qEspd_KUhwAT14GJn2-mk8Emg5eSILMA/%3Fsize%3D1024/https/cdn.discordapp.com/icons/746364860392013854/afce46e5c8ae4080d4f829992db2375d.webp")
     .setTimestamp()
@@ -60,10 +60,10 @@ client.on("message", async (message) => {
     const commandsEmbed = new Discord.MessageEmbed()
 	  .setColor("#000001")
 	  .setTitle("How to use this bot:")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
 	  .addFields(
-		  { name: "Moderation Commands", value: "Use !ban <@user> to ban a user. \nUse !unban <userid> to unban a user. \nUse !mute <@user> to mute a user. \nUse !unmute <@user> to unmute a user. \nUse !kick <@user> to kick a user." },
-	  	{ name: "\u200B", value: "\u200B" },
+		  { name: "Moderation Commands", value: "Use !ban <@user> to ban a user. \nUse !unban <userid> to unban a user. \nUse !mute <@user> to mute a user. \nUse !unmute <@user> to unmute a user. \nUse !kick <@user> to kick a user. \nUse !warn <@user> to warn a user." },
+	//	{ name: "\u200B", value: "\u200B" },
   		{ name: "Misc Commands", value: "Use !commands to see this response. \nUse !ping to check your ping. \nUse !welcome to welcome a new user.", inline: true },
 	  )
 	  .setTimestamp()
@@ -72,15 +72,31 @@ client.on("message", async (message) => {
     const shutdownEmbed = new Discord.MessageEmbed()
 	  .setColor("#000001")
 	  .setTitle("Shutdown")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
 	  .setDescription("Bot Shutting Down...")
+	  .setTimestamp()
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
+
+    const confirmedShutdownEmbed = new Discord.MessageEmbed()
+	  .setColor("#000001")
+	  .setTitle("Shutdown")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
+	  .setDescription("Your bot has been shut down")
+	  .setTimestamp()
+    .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
+   
+    const denyShutdownEmbed = new Discord.MessageEmbed()
+	  .setColor("#000001")
+	  .setTitle("Shutdown")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
+	  .setDescription(`${message.author}, you must be the bot's owner to use this command.`)
 	  .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
 
     const kickEmbed = new Discord.MessageEmbed()
 	  .setColor("#ff0000")
 	  .setTitle("User Kicked")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
 	  .setDescription(`${member} has been kicked from the server.`)
 	  .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
@@ -88,7 +104,8 @@ client.on("message", async (message) => {
     const banEmbed = new Discord.MessageEmbed()
 	  .setColor("#ff0000")
 	  .setTitle("User Banned")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
+    
     .setDescription(`${member} has been banned from the server.`)
     .setImage("https://gfycat.com/playfulfittingcaribou.gif")
 	  .setTimestamp()
@@ -97,7 +114,7 @@ client.on("message", async (message) => {
     const unbanEmbed = new Discord.MessageEmbed()
 	  .setColor("#0fff4b")
 	  .setTitle("User Unbanned")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
     .setDescription("User has been unbanned from the server.")
 	  .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
@@ -105,43 +122,55 @@ client.on("message", async (message) => {
     const lockEmbed = new Discord.MessageEmbed()
     .setColor("#ff0000")
     .setTitle("Channel Locked")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription("This channel has been locked.")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    
+    .setDescription("This channel has been locked.")
     .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const unlockEmbed = new Discord.MessageEmbed()
     .setColor("#0fff4b")
     .setTitle("Channel Unlocked")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setDescription("This channel has been unlocked.")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    
+    .setDescription("This channel has been unlocked.")
     .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
   
     const lockSpecifyEmbed = new Discord.MessageEmbed()
     .setColor("#000001")
     .setTitle("Please Specify On or Off")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")    .setTimestamp()
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")   
+    .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
 
+    // COMMAND CODE
 
-// COMMAND CODE
-    // PING COMMAND
-    if (command ===`ping`) {
-      message.channel.send("Pinging...").then(sent => {
-        const pingEmbed = new Discord.MessageEmbed()
-        .setColor("#000001")
-        .setTitle(`Pong! Took ${sent.createdTimestamp - message.createdTimestamp}ms`)
-        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")        .setTimestamp()
-        .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");    
-      sent.edit(pingEmbed);
-      return;
-      });
+      // PING COMMAND
+    if (command === "ping") {
+      
+      const pingEmbed = new Discord.MessageEmbed()
+        .setColor("#0fff4b")
+        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")   
+        .setTimestamp()
+        .setTitle(`Pinging...`)
+        .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
+      
+      const myMsg = await message.channel.send(pingEmbed)
+    
+      const pongEmbed = new Discord.MessageEmbed()
+        .setColor("#0fff4b")
+        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")   
+        .setTimestamp()
+        .setTitle(`Pong! Took ${myMsg.createdTimestamp - message.createdTimestamp}ms`)
+        .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
+      myMsg.edit(pongEmbed)
+      console.log(`User ${message.author.tag} pinged the bot: ${myMsg.createdTimestamp - message.createdTimestamp}ms`)
     }
+
     //WELCOME COMMAND
     if (command === `welcome`) {    
       message.channel.send(welcomeEmbed);
       return;
     }
-    
     // HELP COMMAND
     if (command === `commands`) {
         message.channel.send(commandsEmbed);
@@ -150,12 +179,14 @@ client.on("message", async (message) => {
     // SHUTDOWN COMMAND
     if (command === `shutdown`) {
       if (message.author.id === "431487139298017282") {
-        await message.channel.send(shutdownEmbed)
+        await message.channel.send(shutdownEmbed).then(sent => {    
+          sent.edit(confirmedShutdownEmbed);
+        });
         console.log(`The bot has been shut down by ${message.author}`)
         process.exit()
         return;
       }
-      else message.channel.send(`${message.author}, you must be the bot"s owner to use this command.`)
+      else message.channel.send(denyShutdownEmbed)
       return;
     }
     // CHANNEL LOCK COMMAND
@@ -246,7 +277,7 @@ client.on("message", async (message) => {
       if(amount < 1) return message.channel.send(clearMINEmbed)
         await message.channel.messages.fetch({limit: amount}).then(messages => {
           message.channel.bulkDelete(messages)
-          message.channel.send(clearEmbed);
+          message.channel.send(clearEmbed).then(msg => msg.delete({ timeout: 3000 }));
           console.log(`${amount} messages cleared by ${message.author} in ${message.channel}.`)
           return;
       });
@@ -266,20 +297,20 @@ client.on("message", async (message) => {
     const warnDMEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
 	  .setTitle(`You were warned by ${message.author.tag}`)
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
 	  .setDescription(`You have been warned for ${reason}`)
 	  .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
     const warnProvideEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
 	  .setTitle("Please provide a user to warn")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
 	  .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
     const warnReasonEmbed = new Discord.MessageEmbed()
 	  .setColor("#ffff00")
 	  .setTitle("Please provide the reason you are warning the user.")
-    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  .setDescription("Commands")
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")	  
 	  .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
         if(!message.member.hasPermission("KICK_MEMBERS")) {
@@ -288,7 +319,7 @@ client.on("message", async (message) => {
       if(!args[0]) return message.reply(warnProvideEmbed);
       if(!args[1]) return message.reply(warnReasonEmbed);
     member.send(warnDMEmbed);
-      message.channel.send(warnEmbed);
+      message.channel.send(warnEmbed).then(msg => msg.delete({ timeout: 5000 }))
         console.log(`${member} has been warned by ${message.author} for ${reason}`)
           return;
     }
