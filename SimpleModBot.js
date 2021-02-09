@@ -178,7 +178,7 @@ client.on("message", async (message) => {
     }
     // SHUTDOWN COMMAND
     if (command === `shutdown`) {
-      if (message.author.id === "431487139298017282") {
+      if (message.author.id === " ") { // ADD YOUR OWN DISCORD ID IN THE EMPTY QUOTES
         await message.channel.send(shutdownEmbed).then(sent => {    
           sent.edit(confirmedShutdownEmbed);
         });
