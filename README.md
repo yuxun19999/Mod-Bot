@@ -16,11 +16,13 @@ I have coded a simple moderation bot, including a variety of commands as shown b
 
 !unmute @user - Unmutes the user based on a role labeled "Muted" Usage: `!unmute <@user>`
 
+`THE MUTE COMMAND RELIES ON A ROLE CALLED `Muted`! MAKE SURE YOU HAVE ONE`
+
 !welcome - Welcomes a new user - Usage: `!welcome`
 
 !commands - Displays commands - Usage: `!commands`
 
-!shutdown - Turns off your bot. - Usage: `!shutdown` // CHECK LINE 32! PUT YOUR OWN DISCORD ID IN THE EMPTY QUOTES
+!shutdown - Turns off your bot. - Usage: `!shutdown` // CHECK LINE 181! PUT YOUR OWN DISCORD ID IN THE EMPTY QUOTES!
 
 !ping - Tells you your ping - Usage: `!ping`
 
