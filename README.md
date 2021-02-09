@@ -12,9 +12,9 @@ I have coded a simple moderation bot, including a variety of commands as shown b
 
 !unban - Unbans the user based on ID - Usage: `!unban <@userID>`
 
-!mute @user - Mutes the user based on a role labeled "Muted" - Usage: `!mute <@user>` THE MUTE COMMAND RELIES ON A ROLE CALLED "Muted"! MAKE SURE YOU HAVE ONE
+!mute - Mutes the user based on a role labeled "Muted" - Usage: `!mute <@user>` THE MUTE COMMAND RELIES ON A ROLE CALLED "Muted"! MAKE SURE YOU HAVE ONE
 
-!unmute @user - Unmutes the user based on a role labeled "Muted" Usage: `!unmute <@user>` THE UNMUTE COMMAND RELIES ON A ROLE CALLED "Muted"! MAKE SURE YOU HAVE ONE
+!unmute - Unmutes the user based on a role labeled "Muted" Usage: `!unmute <@user>` THE UNMUTE COMMAND RELIES ON A ROLE CALLED "Muted"! MAKE SURE YOU HAVE ONE
 
 !welcome - Welcomes a new user - Usage: `!welcome`
 
