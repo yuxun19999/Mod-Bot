@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client({ disableEveryone: true });
+const ms = require('ms');
 client.on("ready", async function () {
     console.log(client.user.username + " is ready!");
     client.user.setActivity("to !commands.", { type: "LISTENING" });
@@ -141,6 +142,14 @@ client.on("message", async (message) => {
     .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({format: "png"}), "https://xwass.github.io/AncientResurge")   
     .setTimestamp()
     .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
+	
+	const indefiniteMuteEmbed = new Discord.MessageEmbed()
+        .setColor("#ffd400")
+        .setTitle("User Indefinitely Muted")
+        .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
+        .setDescription(`${member} has been muted.`)
+        .setTimestamp()
+        .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
 
     // COMMAND CODE
 
@@ -211,21 +220,49 @@ client.on("message", async (message) => {
           }
   }
   // MUTE COMMAND
-    if (command ===`mute`) {
-      message.guild.roles.cache.find(r => r.name === "Muted");
-      if(!message.member.hasPermission("MANAGE_ROLES")){
-        message.channel.send(modCheckEmbed);
+    if (command === "mute") {
+        const user = args[0];
+        const role = message.guild.roles.cache.find(r => r.name === "muted");
+        if (!user) {
+            message.channel.send(specifyMuteUser).then(msg => msg.delete({ timeout: 3000 }));
+            return;
+        }
+        let time = args[1]
+        if (!time) {
+            message.channel.send(indefiniteMuteEmbed)
+            member.roles.add(role);
+            return;
+        }
+        time = ms(time)
+        const muteEmbed = new Discord.MessageEmbed()
+            .setColor("#ffd400")
+            .setTitle("User Muted")
+            .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
+            .setDescription(`${member} has been muted for ${args[1]}.`)
+            .setTimestamp()
+            .setFooter("Created by xWass", "https://images-ext-2.discordapp.net/external/o4pf20HyK0u5557o_RzzfSVidwkKA4a30e8r63G_Pjw/%3Fsize%3D512/https/cdn.discordapp.com/avatars/431487139298017282/1452cddabb6ea77663a0d704ad3cb48a.png");
+
+        if (member.roles.cache.some(mutedRole => mutedRole.name === "muted")) {
+            message.channel.send(alreadyMuted);
+            return
+        }
+        if (!message.member.hasPermission("MANAGE_ROLES")) {
+            message.channel.send(modCheckEmbed);
+            return;
+        }
+        if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
+            message.channel.send(botCheckEmbed);
+            return;
+        }
+        await member.roles.add(role).then(() => {
+            setTimeout(() => {
+                member.roles.remove(role)
+                message.channel.send(muteEmbed)
+            }, time)
+        })
+
+        console.log(`${member} has been muted by ${message.author}.`)
         return;
-      }
-      if(!message.guild.me.hasPermission("MANAGE_ROLES")) {
-        message.channel.send(botCheckEmbed);
-        return;
-      }
-      const role = message.guild.roles.cache.find(r => r.name === "Muted");
-      member.roles.add(role);
-      message.channel.send(muteEmbed);
-      console.log(`${member} has been muted by ${message.author}.`)
-      return;
     }
     // UNMUTE COMMAND
     if (command ===`unmute`) {
